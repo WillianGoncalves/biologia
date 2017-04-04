@@ -2,6 +2,10 @@
   'use strict';
 
   UTILS.fillSelect = function(select, elements){
+
+    var defaultOption = $("<option></option>").attr("disabled", "disabled").attr("selected", "selected").text("-- Selecione uma opção --");
+    select.append(defaultOption);
+
     $.each(elements, function(key, value) {
 
       //por padrão, os objetos no banco de dados possuem as propriedades
