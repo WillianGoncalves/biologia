@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  $(document).ready(function() {
+  $(document).ready(function() {    
 
     //armazena os selects em variáveis
     var selectTemas = $("#grandesTemas");
@@ -25,13 +25,13 @@
 
       //remove os elementos do select de habilidades
       selectHabilidades.empty();
-      
+
       //preenche o select
       UTILS.fillSelect(selectObjsConhecimento, objetosConhecimento);
     });
 
     //evento "onchange" do select de objetos do conhecimento
-    selectObjsConhecimento.on("change", function(){
+    selectObjsConhecimento.on("change", function() {
       //carrega as habilidades passando o id do objeto do conhecimento selecionado
       var habilidades = DAO.getHabilidades(this.value);
 
