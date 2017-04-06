@@ -11,4 +11,5 @@
 
 class ObjetoConhecimento < ApplicationRecord
   belongs_to :grandeTema
+  validates :descricao, :grandeTema, presence: true  
 end

@@ -9,4 +9,5 @@
 #
 
 class Disciplina < ApplicationRecord
+  validates :descricao, presence: true
 end

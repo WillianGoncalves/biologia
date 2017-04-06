@@ -9,4 +9,6 @@
 #
 
 class Questao < ApplicationRecord
+  has_many :respostas
+  validates :enunciado, presence: true  
 end

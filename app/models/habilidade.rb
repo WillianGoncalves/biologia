@@ -11,4 +11,5 @@
 
 class Habilidade < ApplicationRecord
   belongs_to :objetoConhecimento
+  validates :descricao, :objetoConhecimento, presence: true  
 end

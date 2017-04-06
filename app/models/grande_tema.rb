@@ -11,4 +11,5 @@
 
 class GrandeTema < ApplicationRecord
   belongs_to :disciplina
+  validates :descricao, :disciplina, presence: true  
 end
