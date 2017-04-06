@@ -10,6 +10,8 @@
 #
 
 class ObjetoConhecimento < ApplicationRecord
+  self.table_name = "objetos_conhecimento"
   belongs_to :grandeTema
-  validates :descricao, :grandeTema, presence: true  
+  has_many :habilidades
+  validates :descricao, :grandeTema, presence: true
 end

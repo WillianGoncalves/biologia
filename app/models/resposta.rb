@@ -11,6 +11,7 @@
 #
 
 class Resposta < ApplicationRecord
+  self.table_name = "respostas"
   belongs_to :questao
   validates :texto, :questao, presence: true
 end

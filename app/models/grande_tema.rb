@@ -10,6 +10,8 @@
 #
 
 class GrandeTema < ApplicationRecord
+  self.table_name = "grandes_temas"
   belongs_to :disciplina
-  validates :descricao, :disciplina, presence: true  
+  has_many :objetos_conhecimento
+  validates :descricao, :disciplina, presence: true
 end

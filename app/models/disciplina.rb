@@ -9,5 +9,6 @@
 #
 
 class Disciplina < ApplicationRecord
+  has_many :grandes_temas
   validates :descricao, presence: true
 end

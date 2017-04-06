@@ -8,6 +8,10 @@
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #
+# Indexes
+#
+#  index_habilidades_on_objetoConhecimento_id  (objetoConhecimento_id)
+#
 
 class Habilidade < ApplicationRecord
   belongs_to :objetoConhecimento

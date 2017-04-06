@@ -10,6 +10,7 @@
 #
 
 class Questao < ApplicationRecord
+  self.table_name = "questoes"
   has_many :respostas
   enum tipo: [:multipla_escolha, :discursiva, :verdadeiro_falso]
   validates :enunciado, presence: true
