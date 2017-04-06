@@ -1,5 +1,4 @@
 Fabricator(:resposta) do
-  texto   "MyText"
+  texto   {Faker::Lorem.sentence}
   correta false
-  questao nil
 end

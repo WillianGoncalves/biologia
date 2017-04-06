@@ -1,4 +1,4 @@
 Fabricator(:objeto_conhecimento) do
-  descricao  "MyString"
+  descricao  {Faker::Lorem.words}
   grandeTema nil
 end

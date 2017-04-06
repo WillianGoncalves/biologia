@@ -1,4 +1,4 @@
 Fabricator(:grande_tema) do
-  descricao  "MyString"
+  descricao  {Faker::Lorem.words}
   disciplina nil
 end

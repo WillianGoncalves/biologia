@@ -1,4 +1,4 @@
 Fabricator(:habilidade) do
-  descricao          "MyText"
+  descricao          {Faker::Lorem.sentence}
   objetoConhecimento nil
 end

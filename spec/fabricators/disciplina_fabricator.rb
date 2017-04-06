@@ -1,3 +1,3 @@
 Fabricator(:disciplina) do
-  descricao "MyString"
+  descricao {Faker::Educator.course}
 end
