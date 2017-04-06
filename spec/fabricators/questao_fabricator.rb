@@ -1,9 +1,3 @@
-# Fabricator(:questao) do
-#   enunciado {Faker::Lorem.sentence}
-#   tipo 0
-#   respostas(count: 5)
-# end
-
 Fabricator(:multipla_escolha, from: :questao) do
   enunciado {Faker::Lorem.sentence}
   tipo 0
