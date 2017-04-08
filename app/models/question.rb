@@ -13,4 +13,8 @@ class Question < ApplicationRecord
   has_many :answers
   enum question_type: [:multiple_choice, :discursive, :true_false]
   validates :statement, presence: true
+
+  validates :answers, length: {is: 5}, if: :multiple_choice?
+  validates :answers, length: {is: 1}, if: :discursive?
+  validates :answers, length: {is: 2}, if: :true_false?
 end
