@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406201224) do
+ActiveRecord::Schema.define(version: 20170408231927) do
 
   create_table "abilities", force: :cascade do |t|
     t.text     "description"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20170406201224) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "question_type", default: 0
+    t.integer  "ability_id"
+    t.index ["ability_id"], name: "index_questions_on_ability_id"
   end
 
 end
