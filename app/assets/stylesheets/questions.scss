@@ -17,3 +17,15 @@
 #add_ability { margin-top: 10px; }
 
 h1 { font-size: 2em; }
+
+#questions_index{
+  .panel-heading {
+    position: relative;
+
+    .btn-group {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+  }
+}

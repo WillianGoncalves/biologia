@@ -1,5 +1,45 @@
-<div class="row">
+<div class="row" id="questions_index">
   <div class="col-md-12">
-    <%= link_to "Nova questão", new_question_path, class: "btn btn-default" %>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to t('questions.new'), new_question_path, class: "btn btn-default navbar-btn" %>
+        </div>
+      </div>
+    </nav>
+
+    <% @questions.each_with_index do |q, i| %>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <div>
+            <label>#<%= i + 1 %></label>
+            <div class="btn-group" role="group" aria-label="...">
+              <%= button_tag(type: 'button', data: {question_id: q.id}, class: 'btn btn-info') do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+              <% end %>
+              <%= button_tag(type: 'button', data: {question_id: q.id}, class: 'btn btn-danger') do %>
+                <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <p>
+            <%= q.statement %>
+          </p>
+        </div>
+
+        <!-- List group -->
+        <ul class="list-group">
+          <% q.answers.each do |a| %>
+            <li class="list-group-item <%= 'list-group-item-success' if a.correct? %>">
+              <%= a.text %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>
