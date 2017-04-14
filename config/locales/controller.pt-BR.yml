@@ -1,6 +1,7 @@
 pt-BR:
   questions:
     title: Questão
+    index: Questões
     new: Nova questão
     create: Salvar
     classification:
@@ -8,3 +9,5 @@ pt-BR:
     answers:
       title: Respostas
       create: Adicionar
+  disciplines:
+    index: Disciplinas
