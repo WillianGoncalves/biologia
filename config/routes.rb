@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :abilities, only: :index
   end
 
-  resources :competence, only: :index
+  resources :competences, only: :index
 end
