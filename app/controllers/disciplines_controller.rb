@@ -4,6 +4,7 @@ class DisciplinesController < ApplicationController
   end
 
   def new
+    @discipline = Discipline.new
   end
 
   def create

@@ -1,0 +1,12 @@
+<%= form_for @discipline, url: {action: "create"} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :description, class: 'control-label' %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+
+  <button type="button" id="salvar" class="btn btn-primary">
+    <%= t('disciplines.create') %>
+  </button>
+
+<% end %>

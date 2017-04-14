@@ -9,6 +9,8 @@ pt-BR:
             multiple_choice: Múltipla escolha
             discursive: Discursiva
             true_false: Verdadeiro ou falso
+      discipline:
+        description: Descrição
     errors:
       models:
         question:
