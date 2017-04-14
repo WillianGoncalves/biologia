@@ -1,0 +1,2 @@
+window.services = {};
+window.dao = {};
