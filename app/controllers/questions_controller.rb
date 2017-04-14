@@ -18,6 +18,6 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      params.require(:question).permit(:statement, :question_type, :ability_id, answers_attributes: [:text, :correct])
+      params.require(:question).permit(:statement, :question_type, :ability_id, :competence_id, answers_attributes: [:text, :correct])
     end
 end
