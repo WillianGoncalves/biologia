@@ -1,0 +1,10 @@
+pt-BR:
+  questions:
+    title: Questão
+    new: Nova questão
+    create: Salvar
+    classification:
+      title: Classificação
+    answers:
+      title: Respostas
+      create: Adicionar

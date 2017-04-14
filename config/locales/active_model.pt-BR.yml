@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    attributes:
+      question:
+        statement: Enunciado
+        question_type: Tipo da questão
+        enums:
+          question_type:
+            multiple_choice: Múltipla escolha
+            discursive: Discursiva
+            true_false: Verdadeiro ou falso
+    errors:
+      models:
+        question:
+          attributes:
+            answers:
+              wrong_length: Número de respostas incorreto

@@ -1,0 +1,9 @@
+pt-BR:
+  helpers:
+    label:
+      question:
+        discipline: Disciplina
+        great_theme: Grande Tema
+        knowledge_object: Objeto de Conhecimento
+        ability: Habilidade
+        answer: Resposta
