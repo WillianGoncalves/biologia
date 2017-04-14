@@ -7,23 +7,38 @@
     var questionDao = new dao.QuestionsDao($);
 
     //armazena os selects em variáveis
+    var disciplineSelect = $('#discipline');
     var greatThemesSelect = $('#great_theme');
     var knowledgeObjectsSelect = $('#knowledge_object');
     var abilitiesSelect = $('#ability');
     var competenceSelect = $('#competence');
 
-    //faz a requisição dos grandes temas
-    var greatThemesPromise = questionDao.getGreatThemes();
-
-    //carrega os grandes temas
-    greatThemesPromise.done(function(data){
-      utils.fillSelect(greatThemesSelect, data);
-    });
-
+    //faz a requisição das competências
     var competencesPromise = questionDao.getCompetences();
 
     competencesPromise.done(function(data){
       utils.fillSelect(competenceSelect, data);
+    });
+
+    //faz a requisição das disciplinas
+    var disciplinesPromise = questionDao.getDisciplines();
+
+    disciplinesPromise.done(function(data){
+      utils.fillSelect(disciplineSelect, data);
+    });
+
+    //implementa o evento "onChange" do select de disciplinas
+    disciplineSelect.on('change', function(){
+      //pega o id da disciplina selecionada
+      var disciplineId = $(this).val();
+
+      //faz a requisição dos grandes temas
+      var greatThemesPromise = questionDao.getGreatThemes(disciplineId);
+
+      //carrega os grandes temas
+      greatThemesPromise.done(function(data){
+        utils.fillSelect(greatThemesSelect, data);
+      });
     });
 
     //implementa o evento "onChange" do select de grandes temas

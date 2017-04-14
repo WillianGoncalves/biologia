@@ -6,8 +6,8 @@
       return $.get("/disciplines");
     };
 
-    this.getGreatThemes = function getGreatThemes(){
-      return $.get("/great_themes");
+    this.getGreatThemes = function getGreatThemes(disciplineId){
+      return $.get("/disciplines/" + disciplineId + "/great_themes");
     };
 
     this.getKnowledgeObjects = function getKnowledgeObjects(greatThemeId){
