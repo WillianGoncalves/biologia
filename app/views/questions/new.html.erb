@@ -37,6 +37,11 @@
           <%= select_tag :ability, nil, class: 'form-control' %>
       </div>
 
+      <div class="form-group">
+        <%= label_tag 'competence', t('helpers.label.question.competence'), class: 'control-label' %>
+          <%= select_tag :competence, nil, class: 'form-control' %>
+      </div>
+
       <h1><%= t('questions.answers.title') %></h1>
 
       <!-- cadastro de respostas -->
@@ -84,4 +89,6 @@
   </div>
 </div>
 
+<%= javascript_include_tag 'questions/questions.service' %>
+<%= javascript_include_tag 'questions/questions.dao' %>
 <%= javascript_include_tag 'questions/new' %>

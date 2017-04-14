@@ -10,6 +10,7 @@
     var greatThemesSelect = $('#great_theme');
     var knowledgeObjectsSelect = $('#knowledge_object');
     var abilitiesSelect = $('#ability');
+    var competenceSelect = $('#competence');
 
     //faz a requisição dos grandes temas
     var greatThemesPromise = questionDao.getGreatThemes();
@@ -17,6 +18,12 @@
     //carrega os grandes temas
     greatThemesPromise.done(function(data){
       utils.fillSelect(greatThemesSelect, data);
+    });
+
+    var competencesPromise = questionDao.getCompetences();
+
+    competencesPromise.done(function(data){
+      utils.fillSelect(competenceSelect, data);
     });
 
     //implementa o evento "onChange" do select de grandes temas

@@ -18,6 +18,10 @@
       return $.get("/knowledge_objects/" + knowledgeObjectId + "/abilities");
     };
 
+    this.getCompetences = function getCompetences(){
+      return $.get("/competences");
+    };
+
     this.save = function save(question){
       console.log(question);
     };
