@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to t('disciplines.new'), new_discipline_path, class: "btn btn-default navbar-btn" %>
+        </div>
+      </div>
+    </nav>
+
+    <div class="list-group">
+      <label class="list-group-item">
+        <%= t('disciplines.index') %>
+      </label>
+      <% @disciplines.each do |d| %>
+        <p class="list-group-item"><%= d.description %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

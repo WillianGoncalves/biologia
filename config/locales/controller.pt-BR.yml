@@ -11,3 +11,4 @@ pt-BR:
       create: Adicionar
   disciplines:
     index: Disciplinas
+    new: Nova disciplina

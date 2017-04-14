@@ -1,6 +1,11 @@
 class DisciplinesController < ApplicationController
   def index
     @disciplines = Discipline.all
-    render json: @disciplines
+  end
+
+  def new
+  end
+
+  def create
   end
 end
