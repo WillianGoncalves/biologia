@@ -76,6 +76,7 @@
         statement: $('#question_statement').val(),
         question_type: $('#question_question_type').val(),
         ability_id: $('#ability').val(),
+        competence_id: $('#competence').val(),
         answers_attributes: answers
       };
 
