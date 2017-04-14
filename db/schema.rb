@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408231927) do
+ActiveRecord::Schema.define(version: 20170414132029) do
 
   create_table "abilities", force: :cascade do |t|
     t.text     "description"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20170408231927) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "competences", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "disciplines", force: :cascade do |t|
@@ -57,7 +63,9 @@ ActiveRecord::Schema.define(version: 20170408231927) do
     t.datetime "updated_at",                null: false
     t.integer  "question_type", default: 0
     t.integer  "ability_id"
+    t.integer  "competence_id"
     t.index ["ability_id"], name: "index_questions_on_ability_id"
+    t.index ["competence_id"], name: "index_questions_on_competence_id"
   end
 
 end

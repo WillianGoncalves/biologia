@@ -8,15 +8,18 @@
 #  updated_at    :datetime         not null
 #  question_type :integer          default("0")
 #  ability_id    :integer
+#  competence_id :integer
 #
 # Indexes
 #
-#  index_questions_on_ability_id  (ability_id)
+#  index_questions_on_ability_id     (ability_id)
+#  index_questions_on_competence_id  (competence_id)
 #
 
 class Question < ApplicationRecord
   has_many :answers, dependent: :destroy, inverse_of: :question
   belongs_to :ability
+  belongs_to :competence
   enum question_type: [:multiple_choice, :discursive, :true_false]
   validates :statement, presence: true
 
