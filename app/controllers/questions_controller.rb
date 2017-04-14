@@ -10,9 +10,9 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      render :index, status: 200
+      redirect_to questions_path, status: 200
     else
-      render new_question_path(@question), status: 404
+      render new_question_path(@question), status: 400
     end
   end
 
