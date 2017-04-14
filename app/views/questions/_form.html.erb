@@ -1,0 +1,86 @@
+<%= form_for @question, url: {action: "create"} do |f| %>
+
+<h1><%= t('questions.title') %></h1>
+
+<div class="form-group">
+  <%= f.label :statement, class: 'control-label' %>
+    <%= f.text_area :statement, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.label :question_type, class: 'control-label' %>
+    <%= f.select :question_type, question_type_for_select, {}, class: 'form-control' %>
+</div>
+
+<h1><%= t('questions.classification.title') %></h1>
+
+<div class="form-group">
+  <%= label_tag 'discipline', t('helpers.label.question.discipline'), class: 'control-label' %>
+    <%= select_tag :discipline, nil, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= label_tag 'great_theme', t('helpers.label.question.great_theme'), class: 'control-label' %>
+    <%= select_tag :great_theme, nil, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= label_tag 'knowledge_object', t('helpers.label.question.knowledge_object'), class: 'control-label' %>
+    <%= select_tag :knowledge_object, nil, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= label_tag 'ability', t('helpers.label.question.ability'), class: 'control-label' %>
+    <%= select_tag :ability, nil, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= label_tag 'competence', t('helpers.label.question.competence'), class: 'control-label' %>
+    <%= select_tag :competence, nil, class: 'form-control' %>
+</div>
+
+<h1><%= t('questions.answers.title') %></h1>
+
+<!-- cadastro de respostas -->
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= label_tag 'answer', t('helpers.label.question.answer'), class: 'control-label' %>
+        <%= text_area_tag :answer, nil, class: 'form-control' %>
+          <button class="btn btn-default" type="button" id="add_ability">
+            <%= t('questions.answers.create') %>
+          </button>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div id="answers">
+      <template id="answer_template">
+        <div class="input-group">
+
+          <!-- radio -->
+          <span class="input-group-addon">
+            <input type="radio" name="correct" title="Resposta certa"/>
+          </span>
+
+          <!-- text -->
+          <p class="form-control"></p>
+
+          <!-- button -->
+          <span class="input-group-btn">
+            <button class="btn btn-danger" type="button">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </span>
+
+        </div>
+      </template>
+    </div>
+  </div>
+</div>
+
+<button type="button" id="salvar" class="btn btn-primary">
+  <%= t('questions.create') %>
+</button>
+
+<% end %>
