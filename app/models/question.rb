@@ -18,7 +18,7 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy, inverse_of: :question
   belongs_to :ability
   enum question_type: [:multiple_choice, :discursive, :true_false]
-  validates :statement, :ability, presence: true
+  validates :statement, presence: true
 
   validates :answers, length: {is: 5}, if: :multiple_choice?
   validates :answers, length: {is: 1}, if: :discursive?
