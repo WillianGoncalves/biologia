@@ -23,7 +23,7 @@
     };
 
     this.save = function save(question){
-      console.log(question);
+      $.post("/questions", question);
     };
   }
 

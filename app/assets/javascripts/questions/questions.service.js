@@ -80,7 +80,7 @@
         answers_attributes: answers
       };
 
-      return question;
+      return {question: question};
     };
 
   }
