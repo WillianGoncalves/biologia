@@ -9,37 +9,44 @@
       </div>
     </nav>
 
-    <% @questions.each_with_index do |q, i| %>
-      <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">
-          <div>
-            <label>#<%= i + 1 %></label>
-            <div class="btn-group" role="group" aria-label="...">
-              <%= button_tag(type: 'button', data: {question_id: q.id}, class: 'btn btn-info') do %>
-                <span class="glyphicon glyphicon-pencil"></span>
-              <% end %>
-              <%= button_tag(type: 'button', data: {question_id: q.id}, class: 'btn btn-danger') do %>
-                <span class="glyphicon glyphicon-remove"></span>
-              <% end %>
+    <div id="questions">
+      <% @questions.each_with_index do |q, i| %>
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">
+            <div>
+              <label>#<%= i + 1 %></label>
+              <div class="btn-group" role="group" aria-label="...">
+                <%= link_to edit_question_path(q), class: 'btn btn-info' do %>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                <% end %>
+                <%= button_tag(type: 'button', data: {question_id: q.id}, class: 'btn btn-danger') do %>
+                  <span class="glyphicon glyphicon-remove"></span>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-body">
-          <p>
-            <%= q.statement %>
-          </p>
-        </div>
+          <div class="panel-body">
+            <p>
+              <%= q.statement %>
+            </p>
+          </div>
 
-        <!-- List group -->
-        <ul class="list-group">
-          <% q.answers.each do |a| %>
-            <li class="list-group-item <%= 'list-group-item-success' if a.correct? %>">
-              <%= a.text %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+          <!-- List group -->
+          <ul class="list-group">
+            <% q.answers.each do |a| %>
+              <li class="list-group-item <%= 'list-group-item-success' if a.correct? %>">
+                <%= a.text %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>
+
+<%= javascript_include_tag 'questions/questions.service' %>
+<%= javascript_include_tag 'questions/questions.dao' %>
+<%= javascript_include_tag 'questions/index' %>

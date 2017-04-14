@@ -20,6 +20,11 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def destroy
+    Question.delete(params[:id])
+    redirect_to questions_path, status: 200
+  end
+
   private
     def question_params
       params.require(:question).permit(:statement, :question_type, :ability_id, :competence_id, answers_attributes: [:text, :correct])
