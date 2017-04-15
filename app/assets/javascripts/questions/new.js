@@ -6,7 +6,7 @@
     var service = new services.QuestionsService($);
     var questionDao = new dao.QuestionsDao();
     var competencesDao = new dao.CompetencesDao();
-    var disciplinesDao = new dao.DisciplinesDao();
+    var disciplines_dao = new dao.DisciplinesDao();
     var great_themes_dao = new dao.GreatThemesDao();
     var knowledge_objects_dao = new dao.KnowledgeObjectsDao();
     var abilitiesDao = new dao.AbilitiesDao();
@@ -26,9 +26,9 @@
     });
 
     //faz a requisição das disciplinas
-    var disciplinesPromise = disciplinesDao.all();
+    var disciplines_promise = disciplines_dao.all();
 
-    disciplinesPromise.done(function(data){
+    disciplines_promise.done(function(data){
       utils.fillSelect(disciplineSelect, data);
     });
 

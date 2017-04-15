@@ -5,13 +5,13 @@
     var service = new services.GreatThemesService();
     var great_themes_dao = new dao.GreatThemesDao();
 
-    var disciplinesSelect = $('#discipline_id');
-    var disciplinesDao = new dao.DisciplinesDao();
+    var disciplines_select = $('#discipline_id');
+    var disciplines_dao = new dao.DisciplinesDao();
 
-    var promise = disciplinesDao.all();
+    var promise = disciplines_dao.all();
 
     promise.done(function(data){
-      utils.fillSelect(disciplinesSelect, data);
+      utils.fillSelect(disciplines_select, data);
     });
 
     $('#salvar').on('click', function(){

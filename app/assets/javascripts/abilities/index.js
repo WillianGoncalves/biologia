@@ -2,21 +2,21 @@
   'use strict';
 
   $(document).ready(function(){
-    var disciplinesSelect = $('#discipline_id');
+    var disciplines_select = $('#discipline_id');
     var great_theme_select = $('#great_theme_id');
     var knowledge_objects_select = $('#knowledge_object_id');
 
-    var disciplinesDao = new dao.DisciplinesDao();
+    var disciplines_dao = new dao.DisciplinesDao();
     var great_themes_dao = new dao.GreatThemesDao();
     var knowledge_objects_dao = new dao.KnowledgeObjectsDao();    
 
-    var disciplinesPromise = disciplinesDao.all();
+    var disciplines_promise = disciplines_dao.all();
 
-    disciplinesPromise.done(function(data){
-      utils.fillSelect(disciplinesSelect, data);
+    disciplines_promise.done(function(data){
+      utils.fillSelect(disciplines_select, data);
     });
 
-    disciplinesSelect.on('change', function(){
+    disciplines_select.on('change', function(){
       var disciplineId = $(this).val();
 
       var great_themes_promise = great_themes_dao.all(disciplineId);
