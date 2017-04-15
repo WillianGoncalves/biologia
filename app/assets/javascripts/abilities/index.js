@@ -4,11 +4,11 @@
   $(document).ready(function(){
     var disciplinesSelect = $('#discipline_id');
     var great_theme_select = $('#great_theme_id');
-    var knowledgeObjectsSelect = $('#knowledge_object_id');
+    var knowledge_objects_select = $('#knowledge_object_id');
 
     var disciplinesDao = new dao.DisciplinesDao();
     var great_themes_dao = new dao.GreatThemesDao();
-    var knowledgeObjectsDao = new dao.KnowledgeObjectsDao();    
+    var knowledge_objects_dao = new dao.KnowledgeObjectsDao();    
 
     var disciplinesPromise = disciplinesDao.all();
 
@@ -29,10 +29,10 @@
     great_theme_select.on('change', function(){
       var great_theme_id = $(this).val();
 
-      var knowledgeObjectsPromise = knowledgeObjectsDao.all(great_theme_id);
+      var knowledge_objects_promise = knowledge_objects_dao.all(great_theme_id);
 
-      knowledgeObjectsPromise.done(function(data){
-        utils.fillSelect(knowledgeObjectsSelect, data);
+      knowledge_objects_promise.done(function(data){
+        utils.fillSelect(knowledge_objects_select, data);
       });
     });
   });

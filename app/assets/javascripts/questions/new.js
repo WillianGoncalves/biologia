@@ -8,13 +8,13 @@
     var competencesDao = new dao.CompetencesDao();
     var disciplinesDao = new dao.DisciplinesDao();
     var great_themes_dao = new dao.GreatThemesDao();
-    var knowledgeObjectsDao = new dao.KnowledgeObjectsDao();
+    var knowledge_objects_dao = new dao.KnowledgeObjectsDao();
     var abilitiesDao = new dao.AbilitiesDao();
 
     //armazena os selects em variáveis
     var disciplineSelect = $('#discipline');
     var great_theme_select = $('#great_theme');
-    var knowledgeObjectsSelect = $('#knowledge_object');
+    var knowledge_objects_select = $('#knowledge_object');
     var abilitiesSelect = $('#ability');
     var competenceSelect = $('#competence');
 
@@ -52,25 +52,25 @@
       var great_theme_id = $(this).val();
 
       //faz a requisição dos objetos de conhecimento
-      var knowledgeObjectsPromise = knowledgeObjectsDao.all(great_theme_id);
+      var knowledge_objects_promise = knowledge_objects_dao.all(great_theme_id);
 
       //limpa os selects dependentes
-      knowledgeObjectsSelect.empty();
+      knowledge_objects_select.empty();
       abilitiesSelect.empty();
 
       //carrega os objetos de conhecimento
-      knowledgeObjectsPromise.done(function(data){
-        utils.fillSelect(knowledgeObjectsSelect, data);
+      knowledge_objects_promise.done(function(data){
+        utils.fillSelect(knowledge_objects_select, data);
       });
     });
 
     //implementa o evento "onChange" do select de objetos de conhecimento
-    knowledgeObjectsSelect.on('change', function(){
+    knowledge_objects_select.on('change', function(){
       //pega o id do objeto de conhecimento selecionado
-      var knowledgeObjectId = $(this).val();
+      var knowledge_object_id = $(this).val();
 
       //faz a requisição das habilidades
-      var abilitiesPromise = abilitiesDao.all(knowledgeObjectId);
+      var abilitiesPromise = abilitiesDao.all(knowledge_object_id);
 
       //limpa o select de habilidades
       abilitiesSelect.empty();
