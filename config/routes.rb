@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :knowledge_objects, only: :index
   end
 
-  resources :knowledge_objects, only: [] do
+  resources :knowledge_objects, only: [:index, :new, :create] do
     resources :abilities, only: :index
   end
 
