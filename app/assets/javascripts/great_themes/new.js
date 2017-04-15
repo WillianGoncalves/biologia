@@ -3,7 +3,7 @@
 
   $(document).ready(function(){
     var service = new services.GreatThemesService();
-    var greatThemesDao = new dao.GreatThemesDao();
+    var great_themes_dao = new dao.GreatThemesDao();
 
     var disciplinesSelect = $('#discipline_id');
     var disciplinesDao = new dao.DisciplinesDao();
@@ -15,8 +15,8 @@
     });
 
     $('#salvar').on('click', function(){
-      var greatTheme = service.buildGreatTheme();
-      greatThemesDao.save(greatTheme);
+      var great_theme = service.buildGreatTheme();
+      great_themes_dao.save(great_theme);
     });
   });
 })();

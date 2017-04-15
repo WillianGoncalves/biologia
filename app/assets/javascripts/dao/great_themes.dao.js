@@ -6,8 +6,8 @@
       return $.get("/disciplines/" + disciplineId + "/great_themes.json");
     };
 
-    this.save = function save(greatTheme){
-      $.post('/great_themes', greatTheme);
+    this.save = function save(great_theme){
+      $.post('/great_themes', great_theme);
     };
   }
 

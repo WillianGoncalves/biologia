@@ -7,13 +7,13 @@
     var questionDao = new dao.QuestionsDao();
     var competencesDao = new dao.CompetencesDao();
     var disciplinesDao = new dao.DisciplinesDao();
-    var greatThemesDao = new dao.GreatThemesDao();
+    var great_themes_dao = new dao.GreatThemesDao();
     var knowledgeObjectsDao = new dao.KnowledgeObjectsDao();
     var abilitiesDao = new dao.AbilitiesDao();
 
     //armazena os selects em variáveis
     var disciplineSelect = $('#discipline');
-    var greatThemesSelect = $('#great_theme');
+    var great_theme_select = $('#great_theme');
     var knowledgeObjectsSelect = $('#knowledge_object');
     var abilitiesSelect = $('#ability');
     var competenceSelect = $('#competence');
@@ -38,21 +38,21 @@
       var disciplineId = $(this).val();
 
       //faz a requisição dos grandes temas
-      var greatThemesPromise = greatThemesDao.all(disciplineId);
+      var great_themes_promise = great_themes_dao.all(disciplineId);
 
       //carrega os grandes temas
-      greatThemesPromise.done(function(data){
-        utils.fillSelect(greatThemesSelect, data);
+      great_themes_promise.done(function(data){
+        utils.fillSelect(great_theme_select, data);
       });
     });
 
     //implementa o evento "onChange" do select de grandes temas
-    greatThemesSelect.on('change', function(){
+    great_theme_select.on('change', function(){
       //pega o id do grande tema selecionado
-      var greatThemeId = $(this).val();
+      var great_theme_id = $(this).val();
 
       //faz a requisição dos objetos de conhecimento
-      var knowledgeObjectsPromise = knowledgeObjectsDao.all(greatThemeId);
+      var knowledgeObjectsPromise = knowledgeObjectsDao.all(great_theme_id);
 
       //limpa os selects dependentes
       knowledgeObjectsSelect.empty();

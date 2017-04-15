@@ -27,6 +27,6 @@ class GreatThemesController < ApplicationController
 
   private
     def great_theme_params
-      params.require(:greatTheme).permit(:description, :discipline_id)
+      params.require(:great_theme).permit(:description, :discipline_id)
     end
 end

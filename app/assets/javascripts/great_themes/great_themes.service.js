@@ -3,12 +3,12 @@
 
   function GreatThemesService(){
     this.buildGreatTheme = function buildGreatTheme(){
-      var greatTheme = {
+      var great_theme = {
         description: $('#great_theme_description').val(),
         discipline_id: $('#discipline_id').val()
       };
 
-      return {greatTheme: greatTheme};
+      return {great_theme: great_theme};
     };    
   }
 

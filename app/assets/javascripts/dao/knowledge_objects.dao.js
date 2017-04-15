@@ -2,8 +2,8 @@
   'use strict';
 
   function KnowledgeObjectsDao(){
-    this.all = function all(greatThemeId){
-      return $.get("/great_themes/" + greatThemeId + "/knowledge_objects.json");
+    this.all = function all(great_theme_id){
+      return $.get("/great_themes/" + great_theme_id + "/knowledge_objects.json");
     };
   }
 
