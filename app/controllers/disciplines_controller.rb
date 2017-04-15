@@ -8,7 +8,7 @@ class DisciplinesController < ApplicationController
   end
 
   def create
-    @discipline = Discipline.create(discipline_params)
+    @discipline = Discipline.new(discipline_params)
     if @discipline.save
       redirect_to disciplines_path, status: 200
     else
