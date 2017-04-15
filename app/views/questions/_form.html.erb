@@ -47,17 +47,17 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= label_tag 'answer', t('helpers.label.question.answer'), class: 'control-label' %>
-          <%= text_area_tag :answer, nil, class: 'form-control' %>
-            <button class="btn btn-default" type="button" id="add_ability">
-              <%= t('questions.answers.create') %>
-            </button>
+        <%= text_area_tag :answer, nil, class: 'form-control control-margin' %>
+        <button class="btn btn-default" type="button" id="add_ability">
+          <%= t('questions.answers.create') %>
+        </button>
       </div>
     </div>
 
     <div class="col-md-6">
       <div id="answers">
         <template id="answer_template">
-          <div class="input-group">
+          <div class="input-group control-margin">
 
             <!-- radio -->
             <span class="input-group-addon">

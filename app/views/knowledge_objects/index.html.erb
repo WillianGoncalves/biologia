@@ -12,8 +12,8 @@
       <%= form_tag knowledge_objects_path, :method => 'get' do %>
         <div class="row">
           <div class="col-lg-6">
-            <%= select_tag :discipline_id, nil, {class: 'form-control'} %>
-            <div class="input-group">
+            <%= select_tag :discipline_id, nil, {class: 'form-control control-margin'} %>
+            <div class="input-group control-margin">
               <%= select_tag :great_theme_id, nil, {class: 'form-control'} %>
               <span class="input-group-btn">
                 <%= button_tag(type: 'submit', class: 'btn btn-default') do %>

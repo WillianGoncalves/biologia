@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "questions";
-@import "greatThemes";
-@import "knowledgeObjects"
+@import "vars";
+
+.control-margin { margin: $control-margin; }
