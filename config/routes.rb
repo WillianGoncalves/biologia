@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :great_themes, only: :index
   end
 
-  resources :great_themes, only: [] do
+  resources :great_themes, only: [:index, :new, :create] do
     resources :knowledge_objects, only: :index
   end
 
