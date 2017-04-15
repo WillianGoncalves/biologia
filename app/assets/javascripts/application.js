@@ -17,3 +17,4 @@
 //= require bootstrap-sprockets
 //= require init
 //= require utils
+//= require_tree ./dao

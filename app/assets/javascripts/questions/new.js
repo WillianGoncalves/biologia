@@ -4,7 +4,12 @@
   $(document).ready(function(){
 
     var service = new services.QuestionsService($);
-    var questionDao = new dao.QuestionsDao($);
+    var questionDao = new dao.QuestionsDao();
+    var competencesDao = new dao.CompetencesDao();
+    var disciplinesDao = new dao.DisciplinesDao();
+    var greatThemesDao = new dao.GreatThemesDao();
+    var knowledgeObjectsDao = new dao.KnowledgeObjectsDao();
+    var abilitiesDao = new dao.AbilitiesDao();
 
     //armazena os selects em variáveis
     var disciplineSelect = $('#discipline');
@@ -14,14 +19,14 @@
     var competenceSelect = $('#competence');
 
     //faz a requisição das competências
-    var competencesPromise = questionDao.getCompetences();
+    var competencesPromise = competencesDao.all();
 
     competencesPromise.done(function(data){
       utils.fillSelect(competenceSelect, data);
     });
 
     //faz a requisição das disciplinas
-    var disciplinesPromise = questionDao.getDisciplines();
+    var disciplinesPromise = disciplinesDao.all();
 
     disciplinesPromise.done(function(data){
       utils.fillSelect(disciplineSelect, data);
@@ -33,7 +38,7 @@
       var disciplineId = $(this).val();
 
       //faz a requisição dos grandes temas
-      var greatThemesPromise = questionDao.getGreatThemes(disciplineId);
+      var greatThemesPromise = greatThemesDao.all(disciplineId);
 
       //carrega os grandes temas
       greatThemesPromise.done(function(data){
@@ -47,7 +52,7 @@
       var greatThemeId = $(this).val();
 
       //faz a requisição dos objetos de conhecimento
-      var knowledgeObjectsPromise = questionDao.getKnowledgeObjects(greatThemeId);
+      var knowledgeObjectsPromise = knowledgeObjectsDao.all(greatThemeId);
 
       //limpa os selects dependentes
       knowledgeObjectsSelect.empty();
@@ -65,7 +70,7 @@
       var knowledgeObjectId = $(this).val();
 
       //faz a requisição das habilidades
-      var abilitiesPromise = questionDao.getAbilities(knowledgeObjectId);
+      var abilitiesPromise = abilitiesDao.all(knowledgeObjectId);
 
       //limpa o select de habilidades
       abilitiesSelect.empty();
