@@ -4,41 +4,41 @@
   $(document).ready(function(){
 
     var service = new services.QuestionsService($);
-    var questionDao = new dao.QuestionsDao();
-    var competencesDao = new dao.CompetencesDao();
+    var questions_dao = new dao.QuestionsDao();
+    var competences_dao = new dao.CompetencesDao();
     var disciplines_dao = new dao.DisciplinesDao();
     var great_themes_dao = new dao.GreatThemesDao();
     var knowledge_objects_dao = new dao.KnowledgeObjectsDao();
-    var abilitiesDao = new dao.AbilitiesDao();
+    var abilities_dao = new dao.AbilitiesDao();
 
     //armazena os selects em variáveis
-    var disciplineSelect = $('#discipline');
+    var disciplines_select = $('#discipline');
     var great_theme_select = $('#great_theme');
     var knowledge_objects_select = $('#knowledge_object');
-    var abilitiesSelect = $('#ability');
-    var competenceSelect = $('#competence');
+    var abilities_select = $('#ability');
+    var competences_select = $('#competence');
 
     //faz a requisição das competências
-    var competencesPromise = competencesDao.all();
+    var competences_promise = competences_dao.all();
 
-    competencesPromise.done(function(data){
-      utils.fillSelect(competenceSelect, data);
+    competences_promise.done(function(data){
+      utils.fillSelect(competences_select, data);
     });
 
     //faz a requisição das disciplinas
     var disciplines_promise = disciplines_dao.all();
 
     disciplines_promise.done(function(data){
-      utils.fillSelect(disciplineSelect, data);
+      utils.fillSelect(disciplines_select, data);
     });
 
     //implementa o evento "onChange" do select de disciplinas
-    disciplineSelect.on('change', function(){
+    disciplines_select.on('change', function(){
       //pega o id da disciplina selecionada
-      var disciplineId = $(this).val();
+      var discipline_id = $(this).val();
 
       //faz a requisição dos grandes temas
-      var great_themes_promise = great_themes_dao.all(disciplineId);
+      var great_themes_promise = great_themes_dao.all(discipline_id);
 
       //carrega os grandes temas
       great_themes_promise.done(function(data){
@@ -56,7 +56,7 @@
 
       //limpa os selects dependentes
       knowledge_objects_select.empty();
-      abilitiesSelect.empty();
+      abilities_select.empty();
 
       //carrega os objetos de conhecimento
       knowledge_objects_promise.done(function(data){
@@ -70,14 +70,14 @@
       var knowledge_object_id = $(this).val();
 
       //faz a requisição das habilidades
-      var abilitiesPromise = abilitiesDao.all(knowledge_object_id);
+      var abilities_promise = abilities_dao.all(knowledge_object_id);
 
       //limpa o select de habilidades
-      abilitiesSelect.empty();
+      abilities_select.empty();
 
       //carrega as habilidades
-      abilitiesPromise.done(function(data){
-        utils.fillSelect(abilitiesSelect, data);
+      abilities_promise.done(function(data){
+        utils.fillSelect(abilities_select, data);
       });
     });
 
@@ -96,7 +96,7 @@
 
     $('#salvar').on('click', function(){
       var question = service.buildQuestion();
-      questionDao.save(question);
+      questions_dao.save(question);
     });
 
   });

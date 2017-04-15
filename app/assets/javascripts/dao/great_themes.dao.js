@@ -2,8 +2,8 @@
   'use strict';
 
   function GreatThemesDao(){
-    this.all = function all(disciplineId){
-      return $.get("/disciplines/" + disciplineId + "/great_themes.json");
+    this.all = function all(discipline_id){
+      return $.get("/disciplines/" + discipline_id + "/great_themes.json");
     };
 
     this.save = function save(great_theme){

@@ -18,9 +18,9 @@
     });
 
     disciplines_select.on('change', function(){
-      var disciplineId = $(this).val();
+      var discipline_id = $(this).val();
 
-      var great_themes_promise = great_themes_dao.all(disciplineId);
+      var great_themes_promise = great_themes_dao.all(discipline_id);
 
       great_themes_promise.done(function(data){
         utils.fillSelect(great_theme_select, data);
