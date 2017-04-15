@@ -13,3 +13,12 @@ pt-BR:
     index: Disciplinas
     new: Nova disciplina
     create: Salvar
+  great_themes:
+    index: Grandes Temas
+    new: Novo grande tema
+  knowledge_objects:
+    index: Objetos de Conhecimento
+    new: Novo objeto de conhecimento
+  abilities:
+    index: Habilidades
+    new: Nova habilidade
