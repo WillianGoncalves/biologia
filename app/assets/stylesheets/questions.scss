@@ -2,21 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#answers {
-  p.form-control{ height: auto; }
+h1 { font-size: 2em; }
 
-  .input-group-btn {
-    height: 100%;
+#questions_form{
+  #answers {
+    p.form-control{ height: auto; }
 
-    button { height: 100%; }
+    .input-group-btn {
+      height: 100%;
+
+      button { height: 100%; }
+    }
+
+    .input-group { margin-bottom: 10px; }
   }
 
-  .input-group { margin-bottom: 10px; }
+  #add_ability { margin-top: 10px; }
 }
 
-#add_ability { margin-top: 10px; }
-
-h1 { font-size: 2em; }
 
 #questions_index{
   .panel-heading {
