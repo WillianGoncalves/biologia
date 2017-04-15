@@ -16,9 +16,12 @@ pt-BR:
   great_themes:
     index: Grandes Temas
     new: Novo grande tema
+    create: Salvar
   knowledge_objects:
     index: Objetos de Conhecimento
     new: Novo objeto de conhecimento
+    create: Salvar
   abilities:
     index: Habilidades
     new: Nova habilidade
+    create: Salvar

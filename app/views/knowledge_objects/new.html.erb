@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for @knowledge_object, url: {action: "create"} do |f| %>
+
+      <div class="form-group">
+        <%= label_tag 'discipline_id', t('helpers.label.question.discipline'), class: 'control-label' %>
+        <%= select_tag :discipline_id, nil, {class: 'form-control control-margin'} %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag 'great_theme_id', t('helpers.label.question.great_theme'), class: 'control-label' %>
+        <%= select_tag :great_theme_id, nil, {class: 'form-control control-margin'} %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, class: 'control-label' %>
+        <%= f.text_field :description, class: 'form-control' %>
+      </div>
+
+      <button type="button" id="salvar" class="btn btn-primary">
+        <%= t('knowledge_objects.create') %>
+      </button>
+
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_include_tag 'knowledge_objects/knowledge_objects.service' %>
+<%= javascript_include_tag 'knowledge_objects/new' %>

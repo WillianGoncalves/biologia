@@ -11,6 +11,13 @@ pt-BR:
             true_false: Verdadeiro ou falso
       discipline:
         description: Descrição
+      great_theme:
+        description: Descrição
+      knowledge_object:
+        description: Descrição
+      ability:
+        description: Descrição
+
     errors:
       models:
         question:
