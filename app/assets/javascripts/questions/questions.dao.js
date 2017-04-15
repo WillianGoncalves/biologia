@@ -3,19 +3,19 @@
 
   function QuestionsDao($){
     this.getDisciplines = function getDisciplines(){
-      return $.get("/disciplines");
+      return $.get("/disciplines.json");
     };
 
     this.getGreatThemes = function getGreatThemes(disciplineId){
-      return $.get("/disciplines/" + disciplineId + "/great_themes");
+      return $.get("/disciplines/" + disciplineId + "/great_themes.json");
     };
 
     this.getKnowledgeObjects = function getKnowledgeObjects(greatThemeId){
-      return $.get("/great_themes/" + greatThemeId + "/knowledge_objects");
+      return $.get("/great_themes/" + greatThemeId + "/knowledge_objects.json");
     };
 
     this.getAbilities = function getAbilities(knowledgeObjectId){
-      return $.get("/knowledge_objects/" + knowledgeObjectId + "/abilities");
+      return $.get("/knowledge_objects/" + knowledgeObjectId + "/abilities.json");
     };
 
     this.getCompetences = function getCompetences(){

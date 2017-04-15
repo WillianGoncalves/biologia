@@ -1,6 +1,11 @@
 class DisciplinesController < ApplicationController
   def index
     @disciplines = Discipline.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @disciplines }
+    end
   end
 
   def new
