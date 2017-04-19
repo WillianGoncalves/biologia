@@ -12,8 +12,7 @@
       <%= form_tag great_themes_path, :method => 'get' do %>
         <div class="row">
           <div class="col-lg-6">
-            <%= label_tag 'discipline_id', t('helpers.label.question.discipline'), class: 'control-label' %>
-            <%= select_tag :discipline_id, nil, class: 'form-control control-margin' %>
+            <%= render 'shared/select_discipline' %>
             <%= submit_tag t('actions.index'), class: 'btn btn-primary control-margin' %>
           </div>
         </div>

@@ -12,12 +12,7 @@
       <%= form_tag abilities_path, :method => 'get' do %>
         <div class="row">
           <div class="col-lg-6">
-            <%= label_tag 'discipline_id', t('helpers.label.question.discipline'), class: 'control-label' %>
-            <%= select_tag :discipline_id, nil, {class: 'form-control control-margin'} %>
-            <%= label_tag 'great_theme_id', t('helpers.label.question.great_theme'), class: 'control-label' %>
-            <%= select_tag :great_theme_id, nil, {class: 'form-control control-margin'} %>
-            <%= label_tag 'knowledge_object_id', t('helpers.label.question.knowledge_object'), class: 'control-label' %>
-            <%= select_tag :knowledge_object_id, nil, {class: 'form-control control-margin'} %>
+            <%= render 'shared/select_knowledge_object' %>
             <%= submit_tag t('actions.index'), class: 'btn btn-primary control-margin' %>
           </div>
         </div>

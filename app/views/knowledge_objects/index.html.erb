@@ -12,10 +12,7 @@
       <%= form_tag knowledge_objects_path, :method => 'get' do %>
         <div class="row">
           <div class="col-lg-6">
-            <%= label_tag 'discipline_id', t('helpers.label.question.discipline'), class: 'control-label' %>
-            <%= select_tag :discipline_id, nil, {class: 'form-control control-margin'} %>
-            <%= label_tag 'great_theme_id', t('helpers.label.question.great_theme'), class: 'control-label' %>
-            <%= select_tag :great_theme_id, nil, {class: 'form-control control-margin'} %>
+            <%= render 'shared/select_great_theme' %>
             <%= submit_tag t('actions.index'), class: 'btn btn-primary control-margin' %>
           </div>
         </div>
