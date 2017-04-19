@@ -17,15 +17,20 @@
 #
 
 class Question < ApplicationRecord
+
+  MAX_MULTIPLE_CHOICE_ANSWERS = 5
+  MAX_DISCURSIVE_ANSWERS = 1
+  MAX_TRUE_FALSE_ANSWER = 2
+
   has_many :answers, dependent: :destroy, inverse_of: :question
   belongs_to :ability
   belongs_to :competence
   enum question_type: [:multiple_choice, :discursive, :true_false]
   validates :statement, presence: true
 
-  validates :answers, length: {is: 5}, if: :multiple_choice?
-  validates :answers, length: {is: 1}, if: :discursive?
-  validates :answers, length: {is: 2}, if: :true_false?
+  validates :answers, length: {is: MAX_MULTIPLE_CHOICE_ANSWERS}, if: :multiple_choice?
+  validates :answers, length: {is: MAX_DISCURSIVE_ANSWERS}, if: :discursive?
+  validates :answers, length: {is: MAX_TRUE_FALSE_ANSWER}, if: :true_false?
 
   accepts_nested_attributes_for :answers
 end
