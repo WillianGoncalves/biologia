@@ -8,3 +8,5 @@ pt-BR:
         ability: Habilidade
         answer: Resposta
         competence: Competência
+  actions:
+    index: Listar
