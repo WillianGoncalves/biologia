@@ -16,10 +16,10 @@ RSpec.describe QuestionsController, type: :controller do
       let(:ability) {Fabricate :ability}
       let(:competence) {Fabricate :competence}
       let(:question) {{statement: Faker::Lorem.sentence, question_type: "discursive", ability_id: ability.id, competence_id: competence.id, answers_attributes: [{text: Faker::Lorem.sentence, correct: true}]}}
-      before {post :create, params: {question: question}}
+      before {post :create, params: {question: question, format: :json}}
       it {expect(response.status).to eq(200)}
       it {expect(Question.count).to eq(1)}
-      it {expect(Answer.count).to eq(1)}
+      it {expect(Answer.count).to eq(Question::MAX_DISCURSIVE_ANSWERS)}
     end
   end
 
