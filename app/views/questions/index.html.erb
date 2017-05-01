@@ -15,11 +15,8 @@
           <!-- Default panel contents -->
           <div class="panel-heading">
             <div>
-              <label>#<%= i + 1 %></label>
-              <div class="btn-group" role="group" aria-label="...">
-                <%= link_to edit_question_path(q), class: 'btn btn-info' do %>
-                  <span class="glyphicon glyphicon-pencil"></span>
-                <% end %>
+              <label>#<%= i + 1 %> - <%= q.ability.knowledge_object.great_theme.discipline.description %></label>
+              <div class="btn-group" role="group">
                 <%= button_tag(type: 'button', data: {question_id: q.id}, class: 'btn btn-danger') do %>
                   <span class="glyphicon glyphicon-remove"></span>
                 <% end %>
@@ -28,7 +25,7 @@
           </div>
           <div class="panel-body">
             <p>
-              <%= q.statement %>
+              <b><%= q.statement %></b>
             </p>
           </div>
 
