@@ -15,5 +15,6 @@
 
 class Ability < ApplicationRecord
   belongs_to :knowledge_object
+  has_many :questions
   validates :description, :knowledge_object, presence: true
 end

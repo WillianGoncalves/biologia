@@ -25,3 +25,7 @@ pt-BR:
     index: Habilidades
     new: Nova habilidade
     create: Salvar
+  tests:
+    index: Testes
+    new: Gerar teste aleatório
+    generate: Gerar teste

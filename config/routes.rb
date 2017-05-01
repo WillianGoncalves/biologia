@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   resources :abilities, only: [:index, :new, :create]
 
   resources :competences, only: :index
+
+  resources :tests, only: [:index, :new]
+
+  get 'questions_by_discipline/:discipline_id', to: 'questions#questions_by_discipline'
 end

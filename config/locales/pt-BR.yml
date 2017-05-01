@@ -8,5 +8,8 @@ pt-BR:
         ability: Habilidade
         answer: Resposta
         competence: Competência
+      test:
+        questions_number: Número de questões
+        discipline: Disciplina
   actions:
     index: Listar

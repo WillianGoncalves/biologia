@@ -12,6 +12,10 @@
         method: "delete"
       });
     };
+
+    this.questionsByDiscipline = function questionsByDiscipline(discipline_id){
+      return $.get("/questions_by_discipline/" + discipline_id + ".json");
+    };
   }
 
   dao.QuestionsDao = QuestionsDao;
