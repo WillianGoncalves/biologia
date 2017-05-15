@@ -12,10 +12,8 @@ Rails.application.routes.draw do
   end
 
   resources :knowledge_objects, only: [:index, :new, :create] do
-    resources :abilities, only: :index
+    resources :abilities, except: :show
   end
-
-  resources :abilities, only: [:index, :new, :create]
 
   resources :competences, only: :index
 
