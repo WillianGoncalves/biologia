@@ -3,6 +3,10 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def new
     @question = Question.new
   end
@@ -10,7 +14,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to questions_path, status: 200
+      redirect_to questions_path
     else
       render new_question_path(@question), status: 400
     end
@@ -20,9 +24,18 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to questions_path
+    else
+      render :edit, status: 400
+    end
+  end
+
   def destroy
-    Question.delete(params[:id])
-    redirect_to questions_path, status: 200
+    Question.destroy(params[:id])
+    redirect_to questions_path
   end
 
   def questions_by_discipline

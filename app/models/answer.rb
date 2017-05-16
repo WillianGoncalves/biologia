@@ -16,5 +16,5 @@
 
 class Answer < ApplicationRecord
   belongs_to :question
-  validates :text, :question, presence: true
+  validates :text, presence: true
 end
