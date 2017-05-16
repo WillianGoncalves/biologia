@@ -16,5 +16,5 @@
 class GreatTheme < ApplicationRecord
   belongs_to :discipline
   has_many :knowledge_objects
-  validates :description, :discipline, presence: true
+  validates :description, presence: true
 end
