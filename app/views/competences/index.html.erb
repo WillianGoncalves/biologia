@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to t('competences.new'), new_competence_path, class: "btn btn-default navbar-btn" %>
+        </div>
+      </div>
+    </nav>
+
+    <div class="list-group">
+      <label class="list-group-item">
+        <%= t('competences.index') %>
+      </label>
+      <% @competences.each do |c| %>
+        <%= link_to c.description, edit_competence_path(c), class: 'list-group-item' %>
+      <% end %>
+    </div>
+  </div>
+</div>

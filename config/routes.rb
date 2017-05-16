@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :abilities
 
-  resources :competences, only: :index
+  resources :competences
 
   resources :tests, only: [:index, :new]
 

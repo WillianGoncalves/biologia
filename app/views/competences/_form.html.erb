@@ -1,0 +1,15 @@
+<%= form_for @competence do |f| %>
+
+  <%= render 'shared/errors', model: @competence %>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+
+  <%= link_to 'Voltar', :back, class: 'btn btn-default' %>
+  <% if @competence.persisted? %>
+    <%= link_to 'Excluir', competence_path(@competence), method: :delete, data: { confirm: 'Confirme' }, class: 'btn btn-danger' %>
+  <% end %>
+  <%= f.submit t('competences.create'), class: 'btn btn-primary' %>
+<% end %>
