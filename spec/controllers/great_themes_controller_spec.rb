@@ -14,10 +14,18 @@ RSpec.describe GreatThemesController, type: :controller do
   context 'rails' do
     let(:discipline) { Fabricate :discipline }
 
-    describe 'GET #index' do
-      before { get :index, params: { discipline_id: discipline.id } }
-      it { expect(response).to render_template :index }
-      it { expect(assigns(:great_themes)).to match_array discipline.great_themes }
+    context 'GET #index' do
+      describe 'with discipline_id' do
+        before { get :index, params: { discipline_id: discipline } }
+        it { expect(response).to render_template :index }
+        it { expect(assigns(:great_themes)).to match_array discipline.great_themes }
+      end
+
+      describe 'without discipline_id' do
+        before { get :index }
+        it { expect(response).to render_template :index }
+        it { expect(assigns(:great_themes)).to eq GreatTheme.all }
+      end
     end
 
     describe 'GET #new' do
@@ -41,7 +49,7 @@ RSpec.describe GreatThemesController, type: :controller do
       let(:gt) { Fabricate :great_theme }
       before { delete :destroy, params: { discipline_id: discipline.id, id: gt.id } }
       it { expect(response).to redirect_to great_themes_path }
-      it { expect(GreatTheme.count).to eq 0 }
+      it { expect(GreatTheme.all.include?(gt)).to eq false }
     end
 
     context 'with invalid values' do

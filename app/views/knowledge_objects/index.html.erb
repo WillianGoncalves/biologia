@@ -24,10 +24,14 @@
         <%= t('knowledge_objects.index') %>
       </label>
       <% @knowledge_objects.each do |k| %>
-        <p class="list-group-item">
-          <%= k.description %>
-        </p>
+        <%= link_to edit_knowledge_object_path(k), class: 'list-group-item' do %>
+          <%= k.description %><br />
+          <em class="text-muted">
+            <%= k.great_theme.discipline.description %> >
+            <%= k.great_theme.description %>
+          </em>
         <% end %>
+      <% end %>
     </div>
 
   </div>

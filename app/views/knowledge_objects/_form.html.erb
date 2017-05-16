@@ -1,0 +1,23 @@
+<%= form_for @knowledge_object do |f| %>
+
+  <%= render 'shared/errors', model: @knowledge_object %>
+
+  <div class="form-group">
+    <%= f.label :great_theme_id, t('helpers.label.question.great_theme') %>
+    <%= f.select :great_theme_id, great_themes_for_select, {}, {class: 'form-control control-margin'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+
+  <%= link_to 'Voltar', :back, class: 'btn btn-default' %>
+  <% if @knowledge_object.persisted? %>
+    <%= link_to 'Excluir', knowledge_object_path(@knowledge_object), method: :delete, data: { confirm: 'Confirme' }, class: 'btn btn-danger' %>
+  <% end %>
+  <%= f.submit t('knowledge_objects.create'), class: 'btn btn-primary' %>
+
+<% end %>
+
+<%= javascript_include_tag 'knowledge_objects/new' %>
