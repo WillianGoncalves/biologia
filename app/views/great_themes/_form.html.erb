@@ -1,0 +1,17 @@
+<%= form_for([@discipline, @great_theme]) do |f| %>
+
+  <%= render 'shared/errors', model: @great_theme %>
+
+  <div class="form-group">
+    <%= f.label :discipline_id, t('helpers.label.question.discipline') %>
+    <%= f.select :discipline_id, disciplines_for_select, {}, {class: 'form-control control-margin'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+
+  <%= f.submit t('great_themes.create'), class: 'btn btn-primary' %>
+
+<% end %>

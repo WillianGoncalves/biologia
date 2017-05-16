@@ -13,6 +13,7 @@ pt-BR:
         description: Descrição
       great_theme:
         description: Descrição
+        discipline: Disciplina
       knowledge_object:
         description: Descrição
       ability:
