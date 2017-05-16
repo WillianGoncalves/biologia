@@ -24,10 +24,11 @@
         <%= t('great_themes.index') %>
       </label>
       <% @great_themes.each do |g| %>
-        <p class="list-group-item">
-          <%= g.description %>
-        </p>
+        <%= link_to edit_great_theme_path(g), class: 'list-group-item' do %>
+          <%= g.description %><br />
+          <em class="text-muted"><%= g.discipline.description %></em>
         <% end %>
+      <% end %>
     </div>
 
   </div>

@@ -1,5 +1,5 @@
 class GreatThemesController < ApplicationController
-  before_action :load_discipline, except: [:new]
+  before_action :load_discipline, except: [:new, :create]
 
   def index
     @great_themes = @discipline&.great_themes || GreatTheme.all
@@ -19,9 +19,9 @@ class GreatThemesController < ApplicationController
   end
 
   def create
-    @great_theme = @discipline.great_themes.new(great_theme_params)
+    @great_theme = GreatTheme.new(great_theme_params)
     if @great_theme.save
-      redirect_to discipline_great_themes_path
+      redirect_to great_themes_path
     else
       render :new, status: 400
     end
@@ -34,21 +34,21 @@ class GreatThemesController < ApplicationController
   def update
     @great_theme = GreatTheme.find(params[:id])
     if @great_theme.update(great_theme_params)
-      redirect_to discipline_great_themes_path
+      redirect_to great_themes_path
     else
       render :edit, status: 400
     end
   end
 
   def destroy
-    @great_theme = GreatTheme.find(params[:id])
-    redirect_to discipline_great_themes_path
+    @great_theme = GreatTheme.destroy(params[:id])
+    redirect_to great_themes_path
   end
 
   private
 
   def great_theme_params
-    params.require(:great_theme).permit(:description)
+    params.require(:great_theme).permit(:description, :discipline_id)
   end
 
   def load_discipline

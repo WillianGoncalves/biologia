@@ -3,11 +3,9 @@ Rails.application.routes.draw do
   root to: "questions#index"
   resources :questions
 
-  resources :disciplines do
-    resources :great_themes, except: [:new]
-  end
+  resources :disciplines
 
-  resources :great_themes, only: [:index, :new] do
+  resources :great_themes do
     resources :knowledge_objects, only: :index
   end
 

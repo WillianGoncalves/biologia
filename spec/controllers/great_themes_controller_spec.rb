@@ -40,14 +40,15 @@ RSpec.describe GreatThemesController, type: :controller do
     describe 'DELETE' do
       let(:gt) { Fabricate :great_theme }
       before { delete :destroy, params: { discipline_id: discipline.id, id: gt.id } }
-      it { expect(response).to redirect_to discipline_great_themes_path }
+      it { expect(response).to redirect_to great_themes_path }
+      it { expect(GreatTheme.count).to eq 0 }
     end
 
     context 'with invalid values' do
       describe 'POST #create' do
         let(:discipline) { Fabricate :discipline }
-        let(:gt) { { description: '' } }
-        before { post :create, params: { discipline_id: discipline.id, great_theme: gt } }
+        let(:gt) { { description: '', discipline_id: discipline.id } }
+        before { post :create, params: { great_theme: gt } }
         it { expect(response.status).to eq 400 }
         it { expect(response).to render_template :new }
       end
@@ -65,11 +66,10 @@ RSpec.describe GreatThemesController, type: :controller do
     context 'with valid values' do
       describe 'POST #create' do
         let(:discipline) { Fabricate :discipline }
-        let(:gt) { { description: 'foo' } }
-        before { post :create, params: { discipline_id: discipline.id, great_theme: gt } }
-        it { expect(response).to redirect_to discipline_great_themes_path }
-        it { discipline.reload }
+        let(:gt) { { description: 'foo', discipline_id: discipline.id } }
+        before { post :create, params: { great_theme: gt } }
         it { expect(assigns(:great_theme).discipline).to eq discipline }
+        it { expect(response).to redirect_to great_themes_path }
       end
 
       describe 'PUT #update' do
@@ -77,7 +77,7 @@ RSpec.describe GreatThemesController, type: :controller do
         let(:gt) { Fabricate :great_theme, discipline: discipline }
         let(:valid_gt) { { description: 'foo' } }
         before { put :update, params: { discipline_id: discipline.id, id: gt.id, great_theme: valid_gt } }
-        it { expect(response).to redirect_to discipline_great_themes_path }
+        it { expect(response).to redirect_to great_themes_path }
       end
     end
   end
