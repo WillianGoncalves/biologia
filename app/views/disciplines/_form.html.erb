@@ -1,0 +1,24 @@
+<%= form_for @discipline do |f| %>
+
+  <% if @discipline.errors.any? %>
+    <div class="panel panel-danger">
+      <div class="panel-heading"><%= pluralize(@discipline.errors.count, 'erro') %></div>
+      <div class="panel-body">
+        <% @discipline.errors.full_messages.each do |msg| %>
+            <p><%= msg %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+
+  <%= link_to 'Voltar', :back, class: 'btn btn-default' %>
+  <% if @discipline.persisted? %>
+    <%= link_to 'Excluir', discipline_path(@discipline), method: :delete, data: { confirm: 'Confirme' }, class: 'btn btn-danger' %>
+  <% end %>
+  <%= f.submit t('disciplines.create'), class: 'btn btn-primary' %>
+<% end %>

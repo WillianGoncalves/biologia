@@ -8,6 +8,10 @@ class DisciplinesController < ApplicationController
     end
   end
 
+  def show
+    @discipline = Discipline.find(params[:id])
+  end
+
   def new
     @discipline = Discipline.new
   end
@@ -15,10 +19,28 @@ class DisciplinesController < ApplicationController
   def create
     @discipline = Discipline.new(discipline_params)
     if @discipline.save
-      redirect_to disciplines_path, status: 200
+      redirect_to disciplines_path
     else
-      render new_discipline_path(@discipline), status: 400
+      render :new, status: 400
     end
+  end
+
+  def edit
+    @discipline = Discipline.find(params[:id])
+  end
+
+  def update
+    @discipline = Discipline.find(params[:id])
+    if @discipline.update(discipline_params)
+      redirect_to disciplines_path
+    else
+      render :edit, status: 400
+    end
+  end
+
+  def destroy
+    Discipline.destroy(params[:id])
+    redirect_to disciplines_path
   end
 
   private

@@ -14,7 +14,7 @@
         <%= t('disciplines.index') %>
       </label>
       <% @disciplines.each do |d| %>
-        <p class="list-group-item"><%= d.description %></p>
+        <%= link_to d.description, edit_discipline_path(d), class: 'list-group-item' %>
       <% end %>
     </div>
   </div>
