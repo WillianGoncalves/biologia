@@ -3,7 +3,7 @@
   <%= render 'shared/errors', model: @ability %>
 
   <div class="form-group">
-    <%= f.label :knowledge_object_id, t('helpers.label.question.discipline') %>
+    <%= f.label :knowledge_object %>
     <%= f.select :knowledge_object_id, knowledge_objects_for_select, {}, {class: 'form-control control-margin'} %>
   </div>
 

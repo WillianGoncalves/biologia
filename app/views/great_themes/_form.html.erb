@@ -3,7 +3,7 @@
   <%= render 'shared/errors', model: @great_theme %>
 
   <div class="form-group">
-    <%= f.label :discipline_id, t('helpers.label.question.discipline') %>
+    <%= f.label :discipline %>
     <%= f.select :discipline_id, disciplines_for_select, {}, {class: 'form-control control-margin'} %>
   </div>
 

@@ -3,7 +3,7 @@
   <%= render 'shared/errors', model: @knowledge_object %>
 
   <div class="form-group">
-    <%= f.label :great_theme_id, t('helpers.label.question.great_theme') %>
+    <%= f.label :great_theme %>
     <%= f.select :great_theme_id, great_themes_for_select, {}, {class: 'form-control control-margin'} %>
   </div>
 
