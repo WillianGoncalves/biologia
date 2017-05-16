@@ -1,5 +1,5 @@
 class GreatThemesController < ApplicationController
-  before_action :load_discipline, only: [:create]
+  before_action :load_discipline, only: [:index]
 
   def index
     @great_themes = @discipline&.great_themes || GreatTheme.all

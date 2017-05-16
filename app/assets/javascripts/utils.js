@@ -2,6 +2,8 @@ var utils = (function() {
   'use strict';
 
   function fillSelect(select, elements) {
+    select.empty();
+    
     var defaultOption = $("<option></option>").attr("disabled", "disabled").attr("selected", "selected").text("-- Selecione uma opção --");
     select.append(defaultOption);
 
