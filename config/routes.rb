@@ -4,17 +4,14 @@ Rails.application.routes.draw do
   resources :questions
 
   resources :disciplines do
-    resources :great_themes, only: [:index]    
+    resources :great_themes, only: [:index]
   end
 
   resources :great_themes
 
   resources :knowledge_objects
 
-
-  resources :knowledge_objects, only: [] do
-    resources :abilities, except: :show
-  end
+  resources :abilities
 
   resources :competences, only: :index
 

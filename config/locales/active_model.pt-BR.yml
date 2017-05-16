@@ -18,6 +18,7 @@ pt-BR:
         description: Descrição
       ability:
         description: Descrição
+        knowledge_object: Objeto de conhecimento
 
     errors:
       models:

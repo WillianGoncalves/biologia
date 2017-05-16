@@ -1,8 +1,21 @@
 <%= form_for @ability do |f| %>
+
+  <%= render 'shared/errors', model: @ability %>
+
   <div class="form-group">
-    <%= f.label, :description %>
-    <%= f.text_field, :description %>
+    <%= f.label :knowledge_object_id, t('helpers.label.question.discipline') %>
+    <%= f.select :knowledge_object_id, knowledge_objects_for_select, {}, {class: 'form-control control-margin'} %>
   </div>
 
-  <%= f.submit 'Salvar', class: 'btn' %>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+
+  <%= link_to 'Voltar', :back, class: 'btn btn-default' %>
+  <% if @ability.persisted? %>
+    <%= link_to 'Excluir', ability_path(@ability), method: :delete, data: { confirm: 'Confirme' }, class: 'btn btn-danger' %>
+  <% end %>
+  <%= f.submit t('abilities.create'), class: 'btn btn-primary' %>
+
 <% end %>

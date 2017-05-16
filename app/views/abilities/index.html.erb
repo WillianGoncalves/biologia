@@ -24,10 +24,15 @@
         <%= t('abilities.index') %>
       </label>
       <% @abilities.each do |a| %>
-        <p class="list-group-item">
-          <%= a.description %>
-        </p>
+        <%= link_to edit_ability_path(a), class: 'list-group-item' do %>
+          <%= a.description %><br />
+          <em class="text-muted">
+            <%= a.knowledge_object.great_theme.discipline.description %> >
+            <%= a.knowledge_object.great_theme.description %> >
+            <%= a.knowledge_object.description %>
+          </em>
         <% end %>
+      <% end %>
     </div>
 
   </div>
