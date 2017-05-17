@@ -18,3 +18,4 @@
 //= require init
 //= require utils
 //= require_tree ./dao
+//= require cocoon
