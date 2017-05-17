@@ -1,43 +1,43 @@
 <div id="question_form">
-  <%= form_for @question, url: {action: "create"} do |f| %>
+  <%= form_for @question do |f| %>
 
   <h1><%= t('questions.title') %></h1>
 
   <div class="form-group">
     <%= f.label :statement, class: 'control-label' %>
-      <%= f.text_area :statement, class: 'form-control' %>
+    <%= f.text_area :statement, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :question_type, class: 'control-label' %>
-      <%= f.select :question_type, question_type_for_select, {}, class: 'form-control' %>
+    <%= f.select :question_type, question_type_for_select, {}, class: 'form-control' %>
   </div>
 
   <h1><%= t('questions.classification.title') %></h1>
 
   <div class="form-group">
     <%= label_tag 'discipline', t('helpers.label.question.discipline'), class: 'control-label' %>
-      <%= select_tag :discipline, nil, class: 'form-control' %>
+    <%= select_tag :discipline, nil, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= label_tag 'great_theme', t('helpers.label.question.great_theme'), class: 'control-label' %>
-      <%= select_tag :great_theme, nil, class: 'form-control' %>
+    <%= select_tag :great_theme, nil, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= label_tag 'knowledge_object', t('helpers.label.question.knowledge_object'), class: 'control-label' %>
-      <%= select_tag :knowledge_object, nil, class: 'form-control' %>
+    <%= select_tag :knowledge_object, nil, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= label_tag 'ability', t('helpers.label.question.ability'), class: 'control-label' %>
-      <%= select_tag :ability, nil, class: 'form-control' %>
+    <%= select_tag :ability, nil, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= label_tag 'competence', t('helpers.label.question.competence'), class: 'control-label' %>
-      <%= select_tag :competence, nil, class: 'form-control' %>
+    <%= f.label :competence, t('helpers.label.question.competence'), class: 'control-label' %>
+    <%= f.select :competence, competences_for_select, {}, class: 'form-control' %>
   </div>
 
   <h1><%= t('questions.answers.title') %></h1>

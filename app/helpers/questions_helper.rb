@@ -7,4 +7,8 @@ module QuestionsHelper
     end
     options
   end
+
+  def competences_for_select
+    Competence.all.map{ |c| [c.description, c.id] }
+  end
 end
