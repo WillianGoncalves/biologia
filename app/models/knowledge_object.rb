@@ -15,6 +15,6 @@
 
 class KnowledgeObject < ApplicationRecord
   belongs_to :great_theme
-  has_many :abilities
+  has_many :abilities, dependent: :destroy
   validates :description, presence: true
 end

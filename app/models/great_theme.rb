@@ -15,6 +15,6 @@
 
 class GreatTheme < ApplicationRecord
   belongs_to :discipline
-  has_many :knowledge_objects
+  has_many :knowledge_objects, dependent: :destroy
   validates :description, presence: true
 end

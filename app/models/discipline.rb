@@ -9,6 +9,6 @@
 #
 
 class Discipline < ApplicationRecord
-  has_many :great_themes
+  has_many :great_themes, dependent: :destroy
   validates :description, presence: true
 end
