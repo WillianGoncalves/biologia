@@ -5,6 +5,7 @@ RSpec.describe AbilitiesController, type: :controller do
   context 'json' do
     describe 'GET #index' do
       let(:ko) { Fabricate :knowledge_object }
+      let(:ability) { Fabricate :ability, knowledge_object: ko }
       before { get :index, params: { knowledge_object_id: ko, format: :json } }
       it { expect(response.status).to eq(200) }
       it { expect(response.content_type).to eq('application/json') }

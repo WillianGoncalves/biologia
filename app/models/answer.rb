@@ -17,4 +17,8 @@
 class Answer < ApplicationRecord
   belongs_to :question
   validates :text, presence: true
+
+  def correct!
+    self.correct = true
+  end
 end

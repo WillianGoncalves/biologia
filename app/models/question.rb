@@ -32,5 +32,15 @@ class Question < ApplicationRecord
   validates :answers, length: {is: MAX_DISCURSIVE_ANSWERS}, if: :discursive?
   validates :answers, length: {is: MAX_TRUE_FALSE_ANSWER}, if: :true_false?
 
-  accepts_nested_attributes_for :answers
+  validate :has_correct_answer
+
+  accepts_nested_attributes_for :answers, allow_destroy: true
+
+  def has_correct_answer
+    right_answers = answers.select{ |a| a.correct }.size
+    if right_answers != 1
+      errors.add(:answers, "there is no correct answer") if right_answers < 1
+      errors.add(:answers, "there are more than one correct answer") if right_answers > 1      
+    end
+  end
 end

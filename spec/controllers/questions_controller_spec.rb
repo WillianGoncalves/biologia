@@ -14,21 +14,21 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe 'GET #show' do
-    let(:question) { Fabricate :discursive }
+    let(:question) { Fabricate :discursive, answers: [Fabricate.build(:right_answer)] }
     before { get :show, params: { id: question } }
     it { expect(response).to render_template :show }
     it { expect(assigns(:question)).to eq question }
   end
 
   describe 'GET #edit' do
-    let(:question) { Fabricate :discursive }
+    let(:question) { Fabricate :discursive, answers: [Fabricate.build(:right_answer)] }
     before { get :edit, params: { id: question } }
     it { expect(response).to render_template :edit }
     it { expect(assigns(:question)).to eq question }
   end
 
   describe 'DELETE' do
-    let(:question) { Fabricate :discursive }
+    let(:question) { Fabricate :discursive, answers: [Fabricate.build(:right_answer)] }
     before { delete :destroy, params: { id: question } }
     it { expect(response).to redirect_to questions_path }
     it { expect(Question.all.include?(question)).to eq false }
@@ -45,7 +45,7 @@ RSpec.describe QuestionsController, type: :controller do
     end
 
     describe 'PUT #update' do
-      let(:question) { Fabricate :discursive }
+      let(:question) { Fabricate :discursive, answers: [Fabricate.build(:right_answer)] }
       let(:invalid_question) { { statement: '', question_type: "discursive" } }
       before { put :update, params: { id: question, question: invalid_question } }
       it { expect(response.status).to eq 400 }
@@ -67,7 +67,7 @@ RSpec.describe QuestionsController, type: :controller do
     end
 
     describe 'PUT #update' do
-      let(:question) { Fabricate :discursive }
+      let(:question) { Fabricate :discursive, answers: [Fabricate.build(:right_answer)] }
       let(:valid_question) { { statement: Faker::Lorem.sentence, question_type: "discursive" } }
       before { put :update, params: { id: question, question: valid_question } }
       it { expect(response).to redirect_to questions_path }
