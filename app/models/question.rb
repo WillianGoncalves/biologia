@@ -39,8 +39,8 @@ class Question < ApplicationRecord
   def has_correct_answer
     right_answers = answers.select{ |a| a.correct }.size
     if right_answers != 1
-      errors.add(:answers, "there is no correct answer") if right_answers < 1
-      errors.add(:answers, "there are more than one correct answer") if right_answers > 1      
+      errors.add(:answers, :no_right_answer) if right_answers < 1
+      errors.add(:answers, :many_right_answer) if right_answers > 1
     end
   end
 end

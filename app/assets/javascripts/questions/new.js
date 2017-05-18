@@ -3,7 +3,6 @@
 
   $(document).ready(function(){
 
-    var service = new services.QuestionsService($);
     var questions_dao = new dao.QuestionsDao();
     var competences_dao = new dao.CompetencesDao();
     var disciplines_dao = new dao.DisciplinesDao();
@@ -15,7 +14,7 @@
     var disciplines_select = $('#discipline');
     var great_theme_select = $('#great_theme');
     var knowledge_objects_select = $('#knowledge_object');
-    var abilities_select = $('#ability');
+    var abilities_select = $('#question_ability_id');
     var competences_select = $('#competence');
 
     //faz a requisição das competências
@@ -79,24 +78,6 @@
       abilities_promise.done(function(data){
         utils.fillSelect(abilities_select, data);
       });
-    });
-
-    //implementa o evento "onclick" do botão que adiciona respostas
-    $('#add_ability').on('click', function(){
-      service.addAnswer($('#answer').val());
-
-      //limpa o textarea com a resposta
-      $('#answer').val('');
-    });
-
-    //implementa o evento "onclick" dos botões de exclusão de resposta
-    $('#answers').on('click', 'button', function(){
-      service.removeAnswer($(this).data('index'));
-    });
-
-    $('#salvar').on('click', function(){
-      var question = service.buildQuestion();
-      questions_dao.save(question);
     });
 
   });

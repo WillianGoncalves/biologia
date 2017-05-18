@@ -13,6 +13,7 @@ pt-BR:
         discipline: Disciplina
   actions:
     index: Listar
+    check_as_right_answer: Marcar como resposta certa
   errors:
     format: "%{attribute} %{message}"
     messages:

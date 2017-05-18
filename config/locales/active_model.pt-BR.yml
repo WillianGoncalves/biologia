@@ -9,6 +9,8 @@ pt-BR:
             multiple_choice: Múltipla escolha
             discursive: Discursiva
             true_false: Verdadeiro ou falso
+        answers: Respostas
+        ability: Habilidade
       discipline:
         description: Descrição
       great_theme:
@@ -21,10 +23,15 @@ pt-BR:
         knowledge_object: Objeto de conhecimento
       competence:
         description: Descrição
+      answer:
+        text: Texto
+        correct: Resposta certa
 
     errors:
       models:
         question:
           attributes:
             answers:
-              wrong_length: Número de respostas incorreto
+              wrong_length: Questões desse tipo devem ter %{count} respostas
+              no_right_answer: A resposta correta não foi definida
+              many_right_answer: A questão possui mais de uma resposta correta
