@@ -1,5 +1,29 @@
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to t('tests.new'), new_test_path, class: 'btn btn-default' %>
+<%= form_tag tests_path, method: :get, class: 'form-inline control-margin' do %>
+  <div class="form-group">
+    <%= label_tag 'questions_number', t('helpers.label.test.questions_number'), class: 'control-label' %>
+    <%= text_field_tag 'questions_number', nil, {class: 'form-control', type: 'number', min: '1', max: @max_questions} %>
   </div>
-</div>
+  <div class="form-group">
+    <%= label_tag 'discipline_id', t('helpers.label.test.discipline'), class: 'control-label' %>
+    <%= select_tag 'discipline_id', options_for_select(disciplines_for_select), class: 'form-control' %>
+  </div>
+  <%= submit_tag t('tests.generate'), class: 'btn btn-primary' %>
+<% end %>
+
+<% @questions.each do |q| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p>
+        <%= q.statement %>
+      </p>
+
+      <% if q.multiple_choice? %>
+        <%= render 'multiple_choice', q: q %>
+      <% elsif q.discursive? %>
+        <%= render 'discursive', q: q %>
+      <% else %>
+        <%= render 'true_false', q: q %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
