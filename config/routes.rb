@@ -12,14 +12,12 @@ Rails.application.routes.draw do
   end
 
   resources :knowledge_objects do
-    resources :abilities, only: [:index]    
+    resources :abilities, only: [:index]
   end
 
   resources :abilities
 
   resources :competences
 
-  resources :tests, only: [:index, :new]
-
-  get 'questions_by_discipline/:discipline_id', to: 'questions#questions_by_discipline'
+  resources :tests, only: [:index]
 end
