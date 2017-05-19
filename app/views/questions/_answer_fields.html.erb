@@ -1,6 +1,6 @@
 <div class="nested-fields input-group answer-form">
   <span class="input-group-addon">
-    <%= f.radio_button :correct, true, title: t('actions.check_as_right_answer') %>
+    <%= f.check_box :correct, title: t('actions.check_as_right_answer') %>
   </span>
 
   <%= f.text_field :text, {class: 'form-control', placeholder: 'text'} %>
