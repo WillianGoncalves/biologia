@@ -1,16 +1,16 @@
 class TestsController < ApplicationController
 
   def index
-  end
+    @questions = []
+    @max_questions = Question.count
 
-  def new
-    @questions_number = Question.count
-  end
+    if params[:discipline_id].present?
+      @questions = Question.joins(:ability => [:knowledge_object => [:great_theme => [:discipline]]]).where("disciplines.id = ?", params[:discipline_id])
 
-  def generate
-    render new_test_path unless params[:discipline].present? && params[:questions_number].present?
-    questions = Question.joins(:ability => [:knowledge_object => [:great_theme => [:discipline]]]).where("disciplines.id = ?", params[:discipline])
-    @questions = question.sample(params[:questions_number])
+      if params[:questions_number].present? && params[:questions_number].to_i <= @max_questions
+        @questions = @questions.sample(params[:questions_number].to_i)
+      end
+    end
   end
 
 end

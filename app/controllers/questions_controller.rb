@@ -38,14 +38,6 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
-  def questions_by_discipline
-    @questions = Question.joins(:ability => [:knowledge_object => [:great_theme => [:discipline]]]).where("disciplines.id = ?", params[:discipline_id])
-
-    respond_to do |format|
-      format.json { render json: @questions.to_json(include: :answers) }
-    end
-  end
-
   private
     def question_params
       params.require(:question).permit(:statement, :question_type, :ability_id, :competence_id, answers_attributes: [:id, :text, :correct])
