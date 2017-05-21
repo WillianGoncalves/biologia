@@ -17,5 +17,8 @@
 //= require bootstrap-sprockets
 //= require init
 //= require utils
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree ./dao
 //= require cocoon
