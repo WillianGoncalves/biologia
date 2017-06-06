@@ -13,12 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-// require_tree .
 //= require bootstrap-sprockets
 //= require init
 //= require utils
 //= require react
 //= require react_ujs
 //= require components
-//= require_tree ./dao
+//= require_tree .
+// require_tree ./dao
 //= require cocoon

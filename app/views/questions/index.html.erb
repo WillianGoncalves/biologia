@@ -7,42 +7,10 @@
           <%= link_to t('questions.new'), new_question_path, class: "btn btn-default navbar-btn" %>
         </div>
       </div>
-    </nav>
+    </nav>    
 
-    <div id="questions">
-      <% @questions.each_with_index do |q, i| %>
-        <div class="panel panel-default">
-          <!-- Default panel contents -->
-          <div class="panel-heading">
-            <div>
-              <label>#<%= i + 1 %> - <%= q.ability.knowledge_object.great_theme.discipline.description %></label>
-              <div class="btn-group" role="group">
-                <%= link_to edit_question_path(q), class: 'btn btn-default' do %>
-                  <span class="glyphicon glyphicon-pencil"></span>
-                <% end %>
-                <%= link_to question_path(q), method: :delete, data: { confirm: 'Confirme' }, class: 'btn btn-danger' do %>
-                  <span class="glyphicon glyphicon-remove"></span>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <div class="panel-body">
-            <p>
-              <b><%= q.statement %></b>
-            </p>
-          </div>
-
-          <!-- List group -->
-          <ul class="list-group">
-            <% q.answers.each do |a| %>
-              <li class="list-group-item <%= 'list-group-item-success' if a.correct? %>">
-                <%= a.text %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </div>
+    <hr />
+    <%= react_component "Questions", render(template: 'questions/index.json.jbuilder') %>
 
   </div>
 </div>
