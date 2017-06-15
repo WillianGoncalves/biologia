@@ -15,5 +15,6 @@ module Biologia
     config.i18n.available_locales = %w(en pt-BR)
     config.i18n.default_locale = :"pt-BR"
     config.i18n.fallbacks = {'pt-BR' => 'en'}
+    config.react.addons = true
   end
 end

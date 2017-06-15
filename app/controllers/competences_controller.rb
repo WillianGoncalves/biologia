@@ -19,7 +19,10 @@ class CompetencesController < ApplicationController
   def create
     @competence = Competence.new(competence_params)
     if @competence.save
-      redirect_to competences_path
+      respond_to do |format|
+        format.html { redirect_to competences_path }
+        format.json { render json: @competence }
+      end
     else
       render :new, status: 400
     end
